@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.82in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[table]{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\definecolor{navy}{HTML}{18365B}
+\definecolor{lightblue}{HTML}{EFF5FB}
+\hypersetup{colorlinks=true,urlcolor=navy}
+\titleformat{\section}{\Large\bfseries\color{navy}}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{navy}}{}{0pt}{}
+\setlist[itemize]{leftmargin=1.4em,itemsep=2pt,topsep=3pt}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small SW301 | Travel Planning and Booking System}\fancyhead[R]{\small Team 118}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\parskip}{3pt}\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{document}
+\begin{center}
+{\Huge\bfseries\color{navy} Travel Planning and Booking System}\\[7pt]
+{\large Phase 1}\\[8pt]
+\colorbox{lightblue}{\parbox{0.92\textwidth}{\centering\vspace{5pt}\textbf{SW301 | Team 118}\\Prepared by: \textbf{Team 118}\vspace{5pt}}}
+\vspace{9pt}
+{\small
+\begin{tabular}{@{}ll@{}}
+\textbf{Team Member} & \textbf{Student ID} \\
+Shehab Osama Magdy & 202402196 \\
+Maya Sameh Aboamer & 202401080 \\
+Yaseen Mohammed Bilal & 202400463 \\
+Abdelrhman Khaled & 202400161
+\end{tabular}
+}
+\end{center}
+\vspace{8pt}
+\section*{Phase 1 Agenda}
+\begin{enumerate}[leftmargin=1.8em,itemsep=2pt,topsep=3pt]
+\item Problem Statement
+\item Functional and Non-Functional Requirements
+\item Use Case Diagram with Descriptions
+\item Domain Model
+\item Initial Class Diagram
+\end{enumerate}
+\vspace{5pt}
+\section{1. Problem Statement}
+Planning a trip can take a lot of time. A traveler may need one website to find a place to visit, another to look for a hotel, and a separate note or app to organize daily activities. It can be hard to keep everything in one place, especially when plans change.
+
+Our project is a \textbf{Travel Planning and Booking System}. It will help travelers find destinations, view hotels, plan their trips, and make simple hotel reservations in one system. A traveler can also see their saved trips and bookings without searching through different websites.
+
+The goal is to make trip planning \textbf{easier and more organized}. We will start with simple features that our team can realistically build. We can add more advanced features later.
+
+\subsection{1.1 Who will use the system?}
+\begin{itemize}
+\item \textbf{Traveler:} Creates an account, explores destinations, plans a trip, and books a hotel.
+\item \textbf{Admin:} Adds and updates destination and hotel information in the system.
+\end{itemize}
+
+\subsection{1.2 What is included in the first version?}
+\begin{itemize}
+\item User accounts and login.
+\item Browse and search destinations.
+\item View hotels for a destination.
+\item Create a trip and add a simple list of planned activities.
+\item Make, view, and cancel hotel bookings.
+\item Basic admin management of destinations and hotels.
+\end{itemize}
+
+\section{2. Functional Requirements}
+Functional requirements describe what the system should do. Each requirement has an ID so we can refer to it in our diagrams and test cases.
+
+\small
+\begin{longtable}{|>{\raggedright\arraybackslash}p{1.05cm}|>{\raggedright\arraybackslash}p{12.7cm}|}
+\hline
+\rowcolor{lightblue}\textbf{ID} & \textbf{Requirement}\\\hline
+\endfirsthead
+\hline\rowcolor{lightblue}\textbf{ID} & \textbf{Requirement}\\\hline
+\endhead
+FR-01 & The traveler can create an account using a name, email, and password.\\\hline
+FR-02 & The traveler can log in and log out.\\\hline
+FR-03 & The traveler can view the list of available destinations.\\\hline
+FR-04 & The traveler can search for a destination by name.\\\hline
+FR-05 & The traveler can view details about a destination, including its description and available hotels.\\\hline
+FR-06 & The traveler can create a trip by choosing a destination and travel dates.\\\hline
+FR-07 & The traveler can view, edit, or delete their saved trips.\\\hline
+FR-08 & The traveler can add and remove activities in a trip plan. Each activity has a name and a date.\\\hline
+FR-09 & The traveler can view hotels and room prices for a selected destination.\\\hline
+FR-10 & The traveler can book a hotel room for selected dates if it is available in the system.\\\hline
+FR-11 & The traveler can view their hotel bookings and cancel a booking.\\\hline
+FR-12 & The system saves booking details and shows a booking confirmation after a successful reservation.\\\hline
+FR-13 & The admin can add, edit, and remove destinations.\\\hline
+FR-14 & The admin can add, edit, and remove hotels and update room availability and prices.\\\hline
+\end{longtable}
+\normalsize
+
+\section{3. Non-Functional Requirements}
+Non-functional requirements describe how well the system should work. We chose practical targets for a small course project.
+
+\small
+\begin{longtable}{|>{\raggedright\arraybackslash}p{1.12cm}|>{\raggedright\arraybackslash}p{12.63cm}|}
+\hline
+\rowcolor{lightblue}\textbf{ID} & \textbf{Requirement}\\\hline
+\endfirsthead
+\hline\rowcolor{lightblue}\textbf{ID} & \textbf{Requirement}\\\hline
+\endhead
+NFR-01 & \textbf{Ease of use:} A new user should be able to find a destination and create a trip without needing instructions.\\\hline
+NFR-02 & \textbf{Performance:} Common pages, such as destinations and saved trips, should load within 3 seconds in our test setup.\\\hline
+NFR-03 & \textbf{Security:} Passwords must not be stored as plain text, and travelers must not access another traveler's trips or bookings.\\\hline
+NFR-04 & \textbf{Reliability:} Saved trips and confirmed bookings should still be available after the user logs out and logs in again.\\\hline
+NFR-05 & \textbf{Validation:} The system must show clear messages when required information is missing or booking dates are invalid.\\\hline
+NFR-06 & \textbf{Maintainability:} Code should be divided into clear parts, such as users, trips, destinations, hotels, and bookings, so we can add features later.\\\hline
+\end{longtable}
+\normalsize
+
+\section{4. Simple Example}
+A traveler creates an account and logs in. They search for \textbf{Alexandria}, open its page, and look at available hotels. They create a trip for three days and add two activities: ``Visit the library'' and ``Walk by the sea.'' Next, they choose an available hotel room and confirm a booking. The booking appears in their account along with the saved trip.
+
+\end{document}
